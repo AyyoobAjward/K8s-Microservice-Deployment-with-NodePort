@@ -8,13 +8,13 @@ import { Customer } from './customers/entity/customer.entity';
     CustomersModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: process.env.HOSTNAME || 'localhost',
+      host: 'mysql-service',
       port: 3306,
       username: 'root',
-      password: '1qazxsw2##',
+      password: 'root',
       database: 'cosmos',
       entities: [Customer],
-      synchronize: true, //only on dev
+      // synchronize: true, //only on dev
     }),
   ],
 })
