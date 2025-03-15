@@ -34,5 +34,3 @@ spec:
     targetPort: 9000
     nodePort: 300003
   type: NodePort
-
-
