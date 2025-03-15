@@ -17,6 +17,7 @@ kind:
           restart: always
           env: 
             - MYSQL_ROOT_PASSWORD: root
+            - MYSQL_DATABASE: cosmos
           ports: 
             - containerPort: 3306
 ---

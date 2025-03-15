@@ -11,13 +11,13 @@ import { AuthModule } from './auth/auth.module';
     OrdersModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: process.env.HOSTNAME || 'localhost',
+      host: 'mysql-service',
       port: 3306,
       username: 'root',
-      password: '1qazxsw2##',
+      password: 'root',
       database: 'cosmos',
       entities: [Order, OrderItem],
-      synchronize: true, //only on dev
+      // synchronize: true, //only on dev
     }),
     AuthModule,
   ],

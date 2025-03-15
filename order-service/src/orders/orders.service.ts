@@ -16,13 +16,13 @@ import { Kafka } from 'kafkajs';
 import { Redis } from 'ioredis';
 @Injectable()
 export class OrdersService implements OnModuleInit {
-  private readonly redis = new Redis({ host: 'localhost', port: 6379 });
-  private readonly Kafka = new Kafka({ brokers: ['localhost:9092'] });
+  private readonly redis = new Redis({ host: 'redis-service', port: 6379 });
+  private readonly Kafka = new Kafka({ brokers: ['kafka-service:9092'] });
   private readonly producer = this.Kafka.producer();
   private readonly consumer = this.Kafka.consumer({ groupId: 'order-service' });
 
   //private readonly inventoryServiceUrl = 'http://localhost:3001/products';
-  private readonly customerServiceUrl = 'http://localhost:3002/customers';
+  private readonly customerServiceUrl = 'http://customer-service-service:3002/customers';
 
   constructor(
     @InjectRepository(Order)
