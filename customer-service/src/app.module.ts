@@ -14,7 +14,7 @@ import { Customer } from './customers/entity/customer.entity';
       password: 'root',
       database: 'cosmos',
       entities: [Customer],
-      // synchronize: true, //only on dev
+      synchronize: true, //only on dev
     }),
   ],
 })

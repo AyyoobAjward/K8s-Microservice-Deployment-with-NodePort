@@ -15,9 +15,9 @@ spec:
       containers: 
         - name: zookeeper
           image: bitnami/zookeeper:latest
-          restart: always
           env: 
-            - ALLOW_ANONYMOUS_LOGIN: yes
+            - name: ALLOW_ANONYMOUS_LOGIN
+              value: "yes"
           ports:
             - containerPort: 2181
 ---
@@ -32,4 +32,3 @@ spec:
     - protocol: TCP
       port: 2181
       targetPort: 2181
-      nodePort: 300001

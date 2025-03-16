@@ -2,22 +2,24 @@ apiVersion: apps/v1
 kind: Deployment
 metadata: 
   name: mysql
-kind: 
+spec: 
   replicas: 1
   selector: 
     matchLabels:
       app: mysql
   template: 
     metadata: 
-      app: mysql
+      labels:
+        app: mysql
     spec: 
       containers: 
         - name: mysql
           image: mysql:latest
-          restart: always
           env: 
-            - MYSQL_ROOT_PASSWORD: root
-            - MYSQL_DATABASE: cosmos
+            - name: MYSQL_ROOT_PASSWORD
+              value: root
+            - name: MYSQL_DATABASE
+              value: "cosmos"
           ports: 
             - containerPort: 3306
 ---
@@ -29,8 +31,8 @@ spec:
   selector:   
     app: mysql
   ports: 
-    protocol: TCP
-    port: 3000
-    targetPort: 3306
-    nodePort: 300005
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
+      nodePort: 30005
   type: NodePort

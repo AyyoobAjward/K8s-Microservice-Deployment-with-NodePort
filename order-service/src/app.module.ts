@@ -17,7 +17,7 @@ import { AuthModule } from './auth/auth.module';
       password: 'root',
       database: 'cosmos',
       entities: [Order, OrderItem],
-      // synchronize: true, //only on dev
+      synchronize: true, //only on dev
     }),
     AuthModule,
   ],

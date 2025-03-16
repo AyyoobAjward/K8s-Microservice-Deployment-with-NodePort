@@ -14,7 +14,7 @@ import { Product } from './products/entity/product.entity';
       password: 'root',
       database: 'cosmos',
       entities: [Product],
-      // synchronize: true, //only on dev
+      synchronize: true, //only on dev
     }),
   ],
 })

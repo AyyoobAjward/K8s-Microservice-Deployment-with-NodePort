@@ -9,12 +9,12 @@ spec:
       app: redis
   template: 
     metadata: 
-      app: redis
+      labels:
+        app: redis
     spec: 
       containers:
         - name: redis
           image: redis:latest
-          restart: always
           ports: 
             - containerPort: 6379
 ---
@@ -26,8 +26,8 @@ spec:
   selector: 
     app: redis
   ports:
-    protocol: TCP
-    port: 3000
-    targetPort: 6379
-    nodePort: 300004
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379
+      nodePort: 30004
   type: NodePort
